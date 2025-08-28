@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fictional Product Landing Page</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background: #f5f7fa; }
+
+    /* Navbar */
+    header {
+      background: #1f2937; color: #fff; padding: 15px 20px;
+      position: sticky; top: 0; z-index: 1000;
+    }
+    nav {
+      max-width: 1100px; margin: auto;
+      display: flex; justify-content: space-between; align-items: center;
+      position: relative;
+    }
+    .logo { font-size: 1.5rem; font-weight: 600; color: #fff; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a {
+      color: #fff; text-decoration: none; font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: #60a5fa; }
+
+    /* Hamburger */
+    .menu-toggle { display: none; }
+    .menu-btn { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+    .menu-btn span { display: block; width: 25px; height: 3px; background: #fff; border-radius: 3px; }
+
+    @media (max-width: 768px) {
+      .menu-btn { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; right: 0; background: #1f2937;
+        flex-direction: column; width: 200px; display: none;
+        padding: 15px; border-radius: 0 0 8px 8px;
+      }
+      .nav-links a { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .nav-links a:last-child { border-bottom: none; }
+      .menu-toggle:checked ~ .nav-links { display: flex; }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff; text-align: center; padding: 100px 20px;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; font-weight: 600; }
+    .hero p { font-size: 1.2rem; margin-bottom: 25px; opacity: 0.9; }
+    .hero button {
+      background: #fff; color: #2563eb; border: none;
+      padding: 14px 30px; border-radius: 30px;
+      font-size: 1rem; font-weight: 600; cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .hero button:hover { background: #e5e7eb; transform: translateY(-2px); }
+
+    /* Features Section */
+    .features {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 25px; padding: 70px 20px; max-width: 1100px; margin: auto;
+    }
+    .feature {
+      background: #fff; padding: 35px 25px; text-align: center;
+      border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .feature:hover { transform: translateY(-6px); }
+    .feature img { width: 70px; margin-bottom: 20px; }
+    .feature h3 { margin-bottom: 12px; font-size: 1.3rem; color: #2563eb; }
+
+    /* Pricing Section */
+    .pricing {
+      background: #fff; padding: 60px 20px; text-align: center;
+    }
+    .pricing h2 { font-size: 2rem; margin-bottom: 20px; color: #2563eb; }
+    .pricing p { max-width: 600px; margin: auto; margin-bottom: 20px; color: #555; }
+
+    /* Footer */
+    footer {
+      background: #1f2937; color: #fff; text-align: center;
+      padding: 25px; font-size: 0.9rem;
+    }
+    footer a { color: #60a5fa; text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed; bottom: 30px; right: 30px;
+      background: #2563eb; color: #fff;
+      padding: 12px 15px; border-radius: 50%;
+      text-decoration: none; font-size: 18px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .back-to-top.show {
+      opacity: 1; visibility: visible;
+    }
+    .back-to-top:hover { background: #1e40af; }
+
+    @media (max-width: 768px) {
+      .features { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">MICH</div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">
+        <span></span><span></span><span></span>
+      </label>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h1>Discover Your Next Big Thing</h1>
+    <p>Our product helps you achieve more with less effort.</p>
+    <button>Sign Up Now</button>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="feature">
+      <img src="./Effi.webp" alt="Feature 1">
+      <h3>Fast & Efficient</h3>
+      <p>Save time and get results quickly with our optimized process.</p>
+    </div>
+    <div class="feature">
+      <img src="./easy.webp" alt="Feature 2">
+      <h3>Easy to Use</h3>
+      <p>A clean and intuitive interface designed for everyone.</p>
+    </div>
+    <div class="feature">
+      <img src="./cust.webp" alt="Feature 3">
+      <h3>Reliable Support</h3>
+      <p>We’re here 24/7 to help you succeed with our service.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <h2>Simple & Transparent Pricing</h2>
+    <p>Choose the plan that works best for you. No hidden fees, cancel anytime.</p>
+    <p><strong>Starting at just $0/month</strong></p>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>Contact us: <a href="akanm.micheal@gmail.com">akanm.micheal@gmail.com</a> | +234 903 947 0192</p>
+    <p>&copy; 2025 MICH DEV. All rights reserved.</p>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#top" class="back-to-top" id="backToTop">Goto Top</a>
+
+  <script>
+    // Fade-in/out back-to-top button
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>
+
